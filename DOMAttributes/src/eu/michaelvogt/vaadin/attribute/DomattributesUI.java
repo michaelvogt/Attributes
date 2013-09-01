@@ -6,10 +6,14 @@ import com.vaadin.server.VaadinRequest;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Button.ClickListener;
+import com.vaadin.ui.ComboBox;
 import com.vaadin.ui.GridLayout;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.UI;
+
+import eu.michaelvogt.vaadin.attribute.server.Attribute;
+import eu.michaelvogt.vaadin.attribute.server.CaptionAttribute;
 
 /**
  * Main UI class
@@ -21,7 +25,7 @@ public class DomattributesUI extends UI {
 
     @Override
     protected void init(VaadinRequest request) {
-        final GridLayout layout = new GridLayout(5, 5);
+        final GridLayout layout = new GridLayout(5, 10);
         layout.setMargin(true);
         setContent(layout);
 
@@ -48,5 +52,17 @@ public class DomattributesUI extends UI {
             }
         });
         layout.addComponent(button, 4, 3);
+
+        ComboBox labelCombo = new ComboBox("Component Caption");
+        layout.addComponent(labelCombo, 2, 6);
+
+        Label separateComboLabel = new Label("Separate Caption");
+        layout.addComponent(separateComboLabel, 1, 7);
+
+        ComboBox noLabelCombo = new ComboBox();
+        layout.addComponent(noLabelCombo, 2, 7);
+
+        CaptionAttribute comboLabeled = new CaptionAttribute(separateComboLabel);
+        comboLabeled.extend(noLabelCombo);
     }
 }

@@ -1,4 +1,4 @@
-package eu.michaelvogt.vaadin.attribute;
+package eu.michaelvogt.vaadin.attribute.server;
 
 import com.vaadin.server.AbstractClientConnector;
 import com.vaadin.server.AbstractExtension;
@@ -18,6 +18,10 @@ public class Attribute extends AbstractExtension {
 
     public String getAttribute() {
         return getState().attribute;
+    }
+
+    public String getValue() {
+        return getState().value;
     }
 
     public void setAttribute(String attribute, String value) {
