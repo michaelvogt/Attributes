@@ -1,4 +1,4 @@
-package eu.michaelvogt.vaadin.attribute;
+package eu.michaelvogt.vaadin.attribute.app;
 
 import java.util.UUID;
 
